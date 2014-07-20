@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head><title>SECURE TEMPLATE</title>
+
+<script>
+ $(window).load(function(){  
+            $('#form\\:interestSlider').slider({
+                   step: 0.25
+                  });
+        });
+</script>
+</h:head> 
+
+<h:body id="entirebody"> 
+
+<h:form id="form" prependId="false">
+
+ <div style="width:370px;border: 1px solid green;height: 35px;border-radius:3px;margin-left: 300px;background-color: rgb(181,229,239);">
+<strong style="margin-left: 120px;margin-top: 10px"> EMI CALCULATOR</strong>
+</div>
+
+<br/>
+ <p:panel style="width : 850px;height :370px;" id="mainpanel">
+			
+				<h:panelGrid columns="3" >
+				 	<p:outputLabel value="Loan Amount : " />
+			        <p:inputText id="principalValue" value="#{emiCalculatorBean.principal}" />
+			        <p:inputText disabled="true" value="  ₹   " style="width: 30px;" />
+			        
+			    </h:panelGrid>
+			    <p:slider for="principalValue"  step="5000" minValue="0" maxValue="10000000" style="width:500px;"/>
+			   
+			    <p:graphicImage value="images/amount-scale.png" style="margin-left:10px;" />
+			    <br/><br/>
+			    
+			    <h:panelGrid columns="3" style="margin-bottom:10px">
+				 	<p:outputLabel value="Interest Rate : " />
+			        <p:inputText id="interestValue" value="#{emiCalculatorBean.interest}" />
+			        <p:inputText disabled="true" value=" % "  style="width: 30px;" />
+			        
+			    </h:panelGrid>
+			    <p:slider id="interestSlider" for="interestValue" minValue="5" maxValue="25" style="width:500px;"/>
+			    <p:graphicImage value="images/interest-scale1.png" style="margin-left:5px;" />
+			    <br /><br />
+			    
+			    <h:panelGrid columns="2" style="margin-bottom:10px">
+				 	<p:outputLabel value="Loan Tenure : " />
+			        <p:inputText id="durationValue" value="#{emiCalculatorBean.duration}" />
+			        
+			    </h:panelGrid>
+			    
+		        <h:selectOneRadio id="options" value="#{emiCalculatorBean.period}" onclick="submit()"
+		        				valueChangeListener="#{emiCalculatorBean.periodConvertor}">
+		            <f:selectItem itemLabel="Years" itemValue="Years" />
+		            <f:selectItem itemLabel="Months" itemValue="Months" />
+		            <p:ajax event="change" update="durationValue"/>
+		        </h:selectOneRadio>
+		        <br/>
+			    <p:slider for="durationValue" minValue="0" maxValue="#{emiCalculatorBean.periodRange}" style="width:500px;"/>
+			  	<p:graphicImage value="images/scale.png" style="margin-left:5px;" />
+			  	<br /><br />
+			  	
+			    <p:commandButton update="emiValue" value="Calculate" action="#{emiCalculatorBean.calculateEmi()}" />
+			    <p:inputText disabled="true" value="  ₹  " style="width: 30px;" />
+			    <p:inputText id="emiValue" value="#{emiCalculatorBean.emi}" >
+			    	<f:convertNumber maxFractionDigits="2"/>
+			    </p:inputText>
+		
+		<!-- <h:graphicImage value="images/ajax-loader.gif" alt="No image Found" />	   -->
+			</p:panel>  
+			
+			
+			<p:commandButton value="Block this page!" action="#{emiCalculatorBean.calculateEmi()}" update="@form"  
+                 onstart="PF('blockUIWidget').block()" oncomplete="PF('blockUIWidget').unblock()"/>  
+  
+<p:blockUI widgetVar="blockUIWidget" block=":form:mainpanel">  
+    <h:panelGrid columns="2">  
+        <h:graphicImage  library="default" name="images3/ajax-loader.gif"/>  
+        <h:outputText value="Please wait..." style="white-space: nowrap;"/>  
+    </h:panelGrid>  
+</p:blockUI>
+		
+		<p:dialog id="addstockid" widgetVar="dlg" header="Add Stock" width="425" height="300"  
+            resizable="false"/> 
+
+
+<p:commandButton onclick="dlg.show()" value="Add stock"/>
+		
+			
+</h:form>
+
+</h:body> 
+</html>

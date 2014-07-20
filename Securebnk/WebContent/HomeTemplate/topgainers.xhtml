@@ -1,0 +1,466 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Home</title>
+
+<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/swfobject/swfobject.js"></script>
+
+ <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="css/default.css" type="text/css" media="screen" />
+
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+        
+<script type="text/javascript">
+  var flashvars = {};
+  flashvars.cssSource = "css/piecemaker.css";
+  flashvars.xmlSource = "piecemaker.xml";
+	
+  var params = {};
+  params.play = "true";
+  params.menu = "false";
+  params.scale = "showall";
+  params.wmode = "transparent";
+  params.allowfullscreen = "true";
+  params.allowscriptaccess = "always";
+  params.allownetworking = "all";
+  
+  swfobject.embedSWF('piecemaker.swf', 'piecemaker', '560', '340', '10', null, flashvars,    
+  params, null);
+
+</script>
+
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/ddsmoothmenu.js">
+
+/***********************************************
+* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+</script> 
+
+<!--Middle part start-->
+<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+<script src="js/superfish.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<!--Middle part End-->
+
+<!--Nivo slider Start-->
+
+<!--Nivo slider End-->
+
+<!--Feedback Links Start-->
+<!--start contactable -->
+
+
+<link rel="stylesheet" href="css/contactable.css" type="text/css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.contactable.js"></script>
+
+<script>
+	jQuery(function(){
+		jQuery('#my-contact-div').contactable(
+        {
+            subject: 'feedback URL:'+location.href,
+            header: '',
+            url: 'mail.php',
+            name: 'Username',
+            email: 'Password',
+            /*dropdownTitle: 'Issue',
+            dropdownOptions: ['General', 'Website bug', 'Feature request'],
+            message : 'Message',*/
+            submit : 'SEND',
+            recievedMsg : 'Thank you for your message',
+            notRecievedMsg : 'Sorry but your message could not be sent, try again later',
+            footer: '',
+            hideOnSubmit: true
+        });
+	});
+</script>
+<!--end contactable -->
+<!--Feedback Links End-->
+<!--Social Links Start-->
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript" src="http://s.sharethis.com/loader.js"></script>
+<script type="text/javascript">stLight.options({publisher: "283a6a33-c849-465a-82af-9919ca2c17aa", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+<script>
+var options={ "publisher": "283a6a33-c849-465a-82af-9919ca2c17aa", "position": "right", "ad": { "visible": true, "openDelay": 5, "closeDelay": 0}, "chicklets": { "items": ["facebook", "twitter", "linkedin", "googleplus", "google_bmarks", "email", "sharethis", ""]}};
+var st_hover_widget = new sharethis.widgets.hoverbuttons(options);
+</script>
+<!--Social Links End-->
+
+<script type='text/javascript' src='js/logging.js'/>
+
+
+<!-- Script for Starting code for Submenu in down-->
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+	$(".tab_content").hide();
+	$(".tab_content:first").show(); 
+
+	$("ul.tabsmenu li").click(function() {
+		$("ul.tabsmenu li").removeClass("active");
+		$(this).addClass("active");
+		$(".tab_content").hide();
+		var activeTab = $(this).attr("rel"); 
+		$("#"+activeTab).fadeIn(); 
+	});
+});
+
+</script> 
+</h:head>
+<h:body id="home"> 
+
+
+<div id="templatemo_wrapper">
+	<div id="templatemo_top">
+    	<div id="templatemo_header">
+    	
+        	<div id="site_title"><h1><a href="http://www.securebank.in"></a></h1></div>
+            <div id="templatemo_menu" class="ddsmoothmenu">
+                <ul>
+                    <li><a href="SecureTemplate.jsf">Home</a></li>
+                     <li><a href="topgainers.jsf" class="selected">Top Gainers</a></li>
+                     <li><a href="topLosers.jsf">Top Losers</a></li>
+                     <li><a href="Sector.jsf">Sectors</a></li>
+                      <li><a href="buyers.jsf">Buyers</a></li>
+                       <li><a href="sellers.jsf">Sellers</a></li>
+                     
+                      
+                       <li><a href=" #">News</a></li>
+                        <li><a href="#">Tool Box</a>
+                        <ul style="margin:3px 0px 0px -14px;">
+                        	<li><a href="EmiCalculator.jsf">EMI Calculator</a></li>
+                            <li><a href="currencyConverter.jsf">Currency Converter</a></li>
+                          </ul>
+                    </li>
+                  
+                    
+                    <li><a href="contactsus.jsf">Contact Us</a></li>
+                    <li><a href="Login.jsf">Login</a></li>
+                </ul>
+                <br style="clear: left" />
+            </div> <!-- end of templatemo_menu -->
+            <div class="cleaner"></div>
+        </div> <!-- END of header -->
+        <div id="my-contact-div"><!-- contactable html placeholder --></div>
+        <div id="templatemo_slider">
+        	<div id="slider_left">
+            	<div class="widget">
+                <div id="tabsm1">
+
+  <ul class="tabsmenu"> 
+        <li class="active" rel="tabmenu1" style="margin:0 0 0 0px">Actives</li>
+        <li rel="tabmenu2">Gainers</li>
+        <li rel="tabmenu3">Losers</li>
+        
+    </ul>
+
+<div class="tab_container"> 
+
+     <div id="tabmenu1" class="tab_content"> 
+ 
+      <ul>
+                  <li>
+                    <div class="tab-thumb">ETFC<br />
+Marketing Corporation<br />
+<div style="color:#CCC">-0,02   -1,58%   NA   1,48</div>
+</div>
+                  </li>
+                  <li>
+                    <div class="tab-thumb"></div>
+                    PSUN<br />
+American Despositary shares<br />
+<div style="color:#CCC">-0,02   -1,52%   NA   1,57</div>
+                                       <div class="tab-thumb">PSUN<br />
+American Despositary shares<br />
+<div style="color:#CCC">-0,02   -1,52%   NA   1,57</div></div>
+
+                  </li>
+                 
+                </ul>
+        
+        
+     </div><!-- #tab1 -->
+     <div id="tabmenu2" class="tab_content"> 
+
+      <ul>
+                  <li>
+                    <div class="tab-thumb">PSUN<br />
+American Despositary shares<br />
+<div style="color:#CCC">-0,02   -1,52%   NA   1,57</div></div>
+                    <div class="tab-thumb">PSUN<br />
+American Despositary shares<br />
+<div style="color:#CCC">-0,02   -1,52%   NA   1,57</div></div>
+
+                   
+                  </li>
+                  <li>
+                    <div class="tab-thumb"> <a class="thumb" href="#"><img alt=""  src="post-images/fast-food_thumb.jpg" /></a></div>
+                    <h3 class="entry-title"><a class="title" href="#">Big fast-food chains lag rivals in taste</a></h3>
+                    <div class="entry-meta entry-header"> <span class="published">June 7, 2011</span> <span class="seperator">,</span> <span class="comment_number"> <a href="#">3 Comments</a> </span> </div>
+                  </li>
+                  
+                                </ul>
+
+     </div><!-- #tab2 -->
+     <div id="tabmenu3" class="tab_content"> 
+
+     <ul>
+                  <li class="clearfix"> <a href="#"><img width="45" height="45" class="avatar" src="post-images/dropbox_thumb.jpg" alt="" /></a> <span><a href="#"><b>Lady Gaga</b>: Nullam id dolor id nibh ultricies vehicula ut id elit....</a></span> </li>
+                  <li class="clearfix"> <a href="#"><img width="45" height="45" class="avatar" src="post-images/dropbox_thumb.jpg" alt="" /></a> <span><a href="#"><b>Nicholas Cage</b>: Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur bland...</a></span> </li>
+                 
+                </ul>
+
+     </div><!-- #tab3 -->
+     
+     
+ </div> <!-- .tab_container --> 
+
+</div>
+          
+        </div>
+            </div>
+            <div id="slider_right">
+                <div id="wrapper">
+<div class="slider-wrapper theme-default">
+<div id="slider" class="nivoSlider"> <img src="images/piecemaker1.png" data-thumb="images/toystory.jpg" alt="" /> 
+<img src="images/piecemaker2.png" data-thumb="demo/images/up.jpg" alt="" title="" />
+<img src="images/piecemaker3.png" data-thumb="demo/images/walle.jpg" alt="" data-transition="slideInLeft" /> 
+<img src="images/piecemaker4.png" data-thumb="images/nemo.jpg" alt="" title="#htmlcaption" /> </div>
+<div id="htmlcaption" class="nivo-html-caption"> </div>
+</div>
+</div>
+
+<script type="text/javascript" src="js/jquery.nivo.slider.js"></script> 
+<script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+    </script> 
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+            </div>
+            <div class="cleaner"></div>
+        </div> <!-- END of slider -->
+  	</div> <!-- END of top -->
+    
+    <div id="templatemo_main">
+    	
+     
+        
+      
+  <div id="outerdiv">
+   <iframe  id="innerdiv" src="http://www.moneycontrol.com/" scrolling="no" frameborder="0"></iframe>
+  </div>
+        
+    
+      <div id="container_wrapper">
+  
+  <div id="outer-wrapper">
+    
+    <div class="clear"></div>
+    
+    <div id="content-wrapper">
+      <div id="inner-content">
+ 
+         <h:form  id="reg" prependId="false"> 
+
+<div style="width:370px;border: 1px solid green;height: 35px;border-radius:3px;margin-left: 300px;background-color: rgb(181,229,239);">
+<strong>WELCOME TO TOP GAINERS SECTION</strong>
+</div>
+
+<div style="float:left;">
+<p:commandButton value="NSE" />
+<p:commandButton value="BSE" />
+</div>
+<br/>
+<br/>
+
+						
+						<p:dataTable id="tGBseTable" value="#{buyersMBean.bseBuyersList}" var="sub" style="width:950px">
+						
+						<p:column headerText="Symbol" >
+						#{sub.companyQuote}
+						</p:column>
+						<p:column headerText="Company Name" >
+						#{sub.companyName}
+						</p:column>
+
+						<p:column headerText="Sector Type">
+							#{sub.sectorType}
+						</p:column>
+
+						<p:column headerText="Previous Close">
+							#{sub.open}
+						</p:column>
+
+						<p:column headerText="Current Price">
+							#{sub.prevClose}
+						</p:column>
+
+						
+						<p:column headerText="% Change">
+							<h:outputLabel value="#{sub.gain}" style="color:green"/> 
+						</p:column>
+
+			</p:dataTable>  
+			
+			<p:dataTable id="tGnseTable" value="#{buyersMBean.nseBuyersList}" var="sub" style="width:950px" >
+						
+						<p:column headerText="Symbol" >
+						#{sub.companyQuote}
+						</p:column>
+						<p:column headerText="Company Name" >
+						#{sub.companyName}
+						</p:column>
+
+						<p:column headerText="Sector Type">
+							#{sub.sectorType}
+						</p:column>
+
+						<p:column headerText="Previous Close">
+							#{sub.open}
+						</p:column>
+
+						<p:column headerText="Current Price">
+							#{sub.prevClose}
+						</p:column>
+
+						
+						<p:column headerText="% Change">
+							<h:outputLabel value="#{sub.gain}" style="color:green"/> 
+						</p:column>
+			</p:dataTable> 
+		
+		
+     
+				
+</h:form>
+
+        
+        
+       <div style="margin-top:15%"></div> 
+        
+   
+        
+        </div>
+        <div id="single_post_container">
+         
+          <div class="post_single">
+           <!-- <h4 class="post_title"><a href="#">MKT</a></h4>-->
+            <div class="post_content clearfix">
+              <div class="thumbnail"></div>
+              <div class="summary_article">
+            <iframe src="http://www.appuonline.com/gadgets/mf_performance.php" width="950px" height="271" frameborder="0" scrolling="no"></iframe>
+              </div>
+            </div>
+          </div>
+          
+          <div class="clear"></div>
+        </div>
+
+      
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+</div>
+        <div class="cleaner"></div>
+    </div> <!-- END of main -->
+</div> <!-- END of wrapper -->
+
+<div id="templatemo_footer_wrapper">
+	<div id="templatemo_footer">
+    
+    	<div class="col one_fourth">
+        	<h4>About Us</h4>
+            <p align="justify">Welcome to SecureBank!, your one stop solution to all the investment needs. We provide the best investment plans, and help you make the most out of your money.We provide unmatched insurance policies with manifold returns that not only guarantee you complete peace of mind, but also give you higher rates of returns.</p>
+        </div>
+        
+    	<div class="col one_fourth">
+        	<h4>Services</h4>
+            <ul class="footer_list">
+            	<li><a href="#">Automated Trading</a></li>
+                <li><a href="#">Market Based News Channels</a></li>
+                <li><a href="#">Lowest Brokerage Online </a></li>
+                <li><a href="#">Monthly Income Plan</a></li>
+                <li><a href="#">Fixed Deposit</a></li>
+			</ul>   
+        </div>
+        
+        <div class="col one_fourth">
+        	<h4>Secure Plans</h4>
+            <ul class="twitter_post">
+	            <li>Attractive Intersest</li>
+                <li>Fixed Desposits	</li>   
+                <li>Recurring Deposits</li>
+                <li>Pension Plans</li>
+			</ul>
+        </div>
+        <div class="col one_fourth no_margin_right">
+        	<h4>Follow Us</h4>	
+            
+            <div class="footer_social_button">
+            <p align="justify">We provide unmatched insurance policies with manifold returns that not only guarantee you complete peace of mind, but also give you higher rates of returns  but also give you higher rates of</p>
+                <a href="#"><img src="images/facebook.png" title="facebook" alt="Facebook" /></a>
+                <a href="#"><img src="images/flickr.png" title="flickr" alt="flickr" /></a>
+                <a href="#"><img src="images/twitter.png" title="twitter" alt="Twitter" /></a>
+                <a href="#"><img src="images/youtube.png" title="youtube" alt="Youtube" /></a>
+                <a href="#"><img src="images/feed.png" title="rss" alt="RSS" /></a>
+		 </div>
+        
+             Designed by <a href="http://www.multiinnovate.com" target="_parent">multiinnovate.com</a>
+            
+        </div>
+        
+        <div class="cleaner"></div>
+    </div> <!-- END of footer -->
+</div> <!-- END of wrapper -->
+
+		
+		
+	
+</h:body> 
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>FB Login</title>
+</head>
+<body>
+	<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '234943440001544',
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+
+    // Additional initialization code here
+
+    showMe = function(response) {
+      if (response.status !== 'connected') {
+        div.innerHTML = '<em>Not Connected</em>';
+      } else {
+        FB.api('/me', function(response) {
+          var i=0;
+          for (var key in response) {
+          
+            i++;
+
+            switch(i){
+            case 1: document.getElementById("id").value=response[key]; break;
+            case 2: document.getElementById("name").value=response[key]; break;
+            case 5: document.getElementById("link").value=response[key]; break;
+            case 6: document.getElementById("userName").value=response[key]; break;
+            case 19: document.getElementById("email").value=response[key]; break;
+           }  
+            
+          }
+
+        });
+      }
+    };
+  FB.getLoginStatus(function(response) {
+    showMe(response);
+    FB.Event.subscribe('auth.authResponseChange', showMe);
+  });
+  };
+
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+</script>
+
+	<fb:login-button scope="email"></fb:login-button>
+	<!-- <div id="me"></div> -->
+	<br />
+	<br />
+	<table>
+		<tr>
+			<td><a>ID : <input type="text" id="id" value="" /></a></td>
+		</tr>
+		<tr>
+			<td><a>Name : <input type="text" id="name" value="" /></a></td>
+		</tr>
+		<tr>
+			<td><a>Link : <input type="text" id="link" value="" /></a></td>
+		</tr>
+		<tr>
+			<td><a>User Name : <input type="text" id="userName" value="" /></a></td>
+		</tr>
+		<tr>
+			<td><a>E-mail : <input type="text" id="email" value="" /></a></td>
+		</tr>
+	</table>
+
+</body>
+</html>

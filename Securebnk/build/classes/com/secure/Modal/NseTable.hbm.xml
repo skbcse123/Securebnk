@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2014 3:29:53 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="NseTable" table="nse_table" catalog="productd_securebank">
+        <id name="nseTableId" type="java.lang.Long">
+            <column name="nse_table_id" />
+            <generator class="identity" />
+        </id>
+        <property name="companyQuote" type="string">
+            <column name="company_quote" length="50" />
+        </property>
+        <property name="companyName" type="string">
+            <column name="company_name" length="50" />
+        </property>
+        <property name="sectorType" type="string">
+            <column name="sector_type" length="50" />
+        </property>
+        <property name="open" type="java.lang.Double">
+            <column name="open" precision="22" scale="0" />
+        </property>
+        <property name="prevClose" type="java.lang.Double">
+            <column name="prev_close" precision="22" scale="0" />
+        </property>
+        <property name="high" type="java.lang.Double">
+            <column name="high" precision="22" scale="0" />
+        </property>
+        <property name="low" type="java.lang.Double">
+            <column name="low" precision="22" scale="0" />
+        </property>
+        <property name="gain" type="java.lang.Double">
+            <column name="gain" precision="22" scale="0" />
+        </property>
+        <set name="watchlistNses" table="watchlist_nse" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="nse_table_id" />
+            </key>
+            <one-to-many class="WatchlistNse" />
+        </set>
+        <set name="userNseStocks" table="user_nse_stock" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="nse_table_id" />
+            </key>
+            <one-to-many class="UserNseStock" />
+        </set>
+    </class>
+</hibernate-mapping>

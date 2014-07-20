@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+
+	<!-- end of header bar -->
+	<ui:define name="body">
+	
+ <!--  <script type="text/javascript">
+    setInterval(function() { 
+       document.getElementById('frm:login').click();
+     
+        }, 5000);
+</script>-->
+
+			
+		<center>
+			<fieldset style="width: 610px; height: 320px;">
+				<div id="signin-button" class="show">
+					<div scope="email" class="g-signin" 
+						data-callback="loginFinishedCallback"
+						data-clientid="65780031427.apps.googleusercontent.com"
+						data-scope="https://www.googleapis.com/auth/userinfo.email"
+						data-height="short" data-cookiepolicy="single_host_origin"></div>
+
+				</div>
+				<br /> <br />
+				<h:form id="frm">
+				<h:panelGrid columns="2" border="0" cellpadding="4"
+					cellspacing="4">
+					<label style="FONT-SIZE: medium; color: black">Mail ID :</label>
+					<h:inputText value="#{socialLogin.gmailId}" readonly="true" />
+					
+					<h:inputHidden  id="id" value="#{socialLogin.gmailId}" />
+					<br />
+					<br /><br />
+					<br /><br />
+					
+					
+						
+					
+				</h:panelGrid>
+				
+				<h:commandLink id="login" value="Login" action="#{socialLogin.verifyCustomersLogin}"  />
+				</h:form>
+			</fieldset>
+		</center>
+			
+		<script src="https://apis.google.com/js/plusone.js"
+					type="text/javascript"></script>
+					
+		<script type="text/javascript">
+		
+		  function loginFinishedCallback(authResult) {
+		    if (authResult) {
+		      if (authResult['error'] == undefined){
+		       
+		        gapi.auth.setToken(authResult); 
+		        toggleElement('signin-button'); 
+				
+		         getEmail();                    
+		      } else {
+		        console.log('An error occurred');
+		      }
+		    } else {
+		      console.log('Empty authResult');  
+		    }
+		  }
+		
+		 
+		  function getEmail(){
+		    
+		    gapi.client.load('oauth2', 'v2', function() {
+		          var request = gapi.client.oauth2.userinfo.get();
+		          request.execute(getEmailCallback);
+		        });
+		  }
+		
+		  (function() {
+			  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			  po.src = 'https://apis.google.com/js/client:plusone.js?onload=onLoadCallback';
+			  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			})();
+			
+		  function getEmailCallback(obj){
+			
+		    var el = document.getElementById('email');
+		    var email = '';
+		    if (obj['email']) {
+		      email = 'Email: ' + obj['email'];
+		
+		      document.getElementById("frm:id").value=obj['email'];
+		
+		    }
+		
+		
+		    
+		    el.innerHTML = email;
+		    toggleElement('email');
+		  }
+		
+		  function toggleElement(id) {
+			 
+		    var el = document.getElementById(id);
+		    if (el.getAttribute('class') == 'hide') {
+		      el.setAttribute('class', 'show');
+		    } else {
+		      el.setAttribute('class', 'hide');
+		    }
+		  }
+		
+		</script>
+	</ui:define>
+</ui:composition>
