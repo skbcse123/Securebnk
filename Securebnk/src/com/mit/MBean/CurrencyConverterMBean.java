@@ -63,7 +63,7 @@ public class CurrencyConverterMBean implements Serializable {
 
 	@PostConstruct
 	public void init() {
-		// System.out.println("in Currency");
+		System.out.println("in Currency");
 	}
 
 	public String calculate() {
