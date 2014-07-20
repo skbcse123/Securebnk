@@ -125,7 +125,7 @@ public class BuyersMBean implements Serializable {
 	
 	@PostConstruct
 	private void initialise() {
-		// System.out.println("in Buyers");
+		System.out.println("in Buyers");
 		loadInitialValues();
 		loadBse();
 		loadNse();
